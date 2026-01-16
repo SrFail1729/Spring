@@ -12,16 +12,15 @@ public class Asignatura {
     @Id
     @GeneratedValue
     private Long id_asignatura;
-    private String nombre_asignatura;
+    private String nombre;
     private String aula;
-    private Boolean obligatorio;
+    private Boolean obligatoria;
 
-    @ManyToMany
-    @JsonManagedReference
+    @ManyToMany(mappedBy = "asignaturas")
+    @JsonBackReference
     private List<Estudiante> estudiantes;
 
-    @OneToOne
-    @JoinColumn(name = "id_profesor")
+    @OneToOne(mappedBy = "asignatura")
     @JsonBackReference
     private Profesor profesor;
 
@@ -34,11 +33,11 @@ public class Asignatura {
     }
 
     public String getNombre_asignatura() {
-        return nombre_asignatura;
+        return nombre;
     }
 
     public void setNombre_asignatura(String nombre_asignatura) {
-        this.nombre_asignatura = nombre_asignatura;
+        this.nombre = nombre;
     }
 
     public String getAula() {
@@ -50,11 +49,11 @@ public class Asignatura {
     }
 
     public Boolean getObligatorio() {
-        return obligatorio;
+        return obligatoria;
     }
 
-    public void setObligatorio(Boolean obligatorio) {
-        this.obligatorio = obligatorio;
+    public void setObligatorio(Boolean obligatoria) {
+        this.obligatoria = obligatoria;
     }
 
     public List<Estudiante> getEstudiantes() {

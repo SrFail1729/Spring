@@ -10,8 +10,7 @@ public class Casa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_casa;
-    @Column(name = "nombre_casa")
-    private String nombre_casa;
+    private String nombre;
     private String fantasma;
 
 
@@ -32,11 +31,11 @@ public class Casa {
     }
 
     public String getNombre_casa() {
-        return nombre_casa;
+        return nombre;
     }
 
-    public void setNombre_casa(String nombre_casa) {
-        this.nombre_casa = nombre_casa;
+    public void setNombre_casa(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getFantasma() {

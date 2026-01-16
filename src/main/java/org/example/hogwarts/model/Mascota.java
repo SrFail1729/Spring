@@ -10,7 +10,7 @@ public class Mascota {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_mascota;
-    private String nombre_mascota;
+    private String nombre;
     private String especie;
 
     @OneToOne
@@ -27,11 +27,11 @@ public class Mascota {
     }
 
     public String getNombre_mascota() {
-        return nombre_mascota;
+        return nombre;
     }
 
     public void setNombre_mascota(String nombre_mascota) {
-        this.nombre_mascota = nombre_mascota;
+        this.nombre = nombre;
     }
 
     public String getEspecie() {

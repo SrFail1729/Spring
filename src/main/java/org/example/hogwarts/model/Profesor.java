@@ -16,12 +16,13 @@ public class Profesor {
     private String apellido;
     private LocalDate fecha_inicio;
 
-    @OneToOne(mappedBy = "profesor")
+    @OneToOne
+    @JoinColumn(name = "id_asignatura")
     @JsonBackReference
     private Asignatura asignatura;
 
     @ManyToOne
-    @JoinColumn(name = "id_casa")
+    @JoinColumn(name = "jefe")
     @JsonBackReference
     private Casa casa;
 
