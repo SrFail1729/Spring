@@ -2,9 +2,10 @@ package org.example.hogwarts.model;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 @Entity
 public class Casa {
     @Id
@@ -24,51 +25,4 @@ public class Casa {
     @JsonManagedReference
     private Profesor jefe;
 
-    public Long getId_casa() {
-        return id_casa;
-    }
-
-    public void setId_casa(Long id_casa) {
-        this.id_casa = id_casa;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getFantasma() {
-        return fantasma;
-    }
-
-    public void setFantasma(String fantasma) {
-        this.fantasma = fantasma;
-    }
-
-    public String getFundador() {
-        return fundador;
-    }
-
-    public void setFundador(String fundador) {
-        this.fundador = fundador;
-    }
-
-    public List<Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-
-    public void setEstudiantes(List<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-    }
-
-    public Profesor getJefe() {
-        return jefe;
-    }
-
-    public void setJefe(Profesor jefe) {
-        this.jefe = jefe;
-    }
 }

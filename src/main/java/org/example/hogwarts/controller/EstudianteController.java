@@ -1,5 +1,6 @@
 package org.example.hogwarts.controller;
 
+import org.example.hogwarts.dto.EstudianteDTO;
 import org.example.hogwarts.model.Estudiante;
 import org.example.hogwarts.repository.EstudianteRepository;
 import org.example.hogwarts.service.EstudianteService;
@@ -19,8 +20,8 @@ public class EstudianteController {
     private EstudianteService service;
 
     @GetMapping
-    public ResponseEntity<List<Estudiante>> findAll(){
-        List<Estudiante> estudiantes = service.listarTodosEstudiantes();
+    public ResponseEntity<List<EstudianteDTO>> getAll(){
+        List<EstudianteDTO> estudiantes = service.listarTodosEstudiantes();
         return ResponseEntity.ok(estudiantes);
     }
 }

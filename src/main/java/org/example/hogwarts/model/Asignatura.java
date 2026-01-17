@@ -1,11 +1,11 @@
 package org.example.hogwarts.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 @Entity
 @Table(name = "Asignatura")
 public class Asignatura {
@@ -24,51 +24,4 @@ public class Asignatura {
     @JsonBackReference
     private Profesor profesor;
 
-    public Long getId_asignatura() {
-        return id_asignatura;
-    }
-
-    public void setId_asignatura(Long id_asignatura) {
-        this.id_asignatura = id_asignatura;
-    }
-
-    public String getNombre_asignatura() {
-        return nombre;
-    }
-
-    public void setNombre_asignatura(String nombre_asignatura) {
-        this.nombre = nombre;
-    }
-
-    public String getAula() {
-        return aula;
-    }
-
-    public void setAula(String aula) {
-        this.aula = aula;
-    }
-
-    public Boolean getObligatorio() {
-        return obligatoria;
-    }
-
-    public void setObligatorio(Boolean obligatoria) {
-        this.obligatoria = obligatoria;
-    }
-
-    public List<Estudiante> getEstudiantes() {
-        return estudiantes;
-    }
-
-    public void setEstudiantes(List<Estudiante> estudiantes) {
-        this.estudiantes = estudiantes;
-    }
-
-    public Profesor getProfesor() {
-        return profesor;
-    }
-
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
-    }
 }
