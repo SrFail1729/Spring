@@ -21,10 +21,9 @@ public class Profesor {
     @JsonBackReference
     private Asignatura asignatura;
 
-    @ManyToOne
-    @JoinColumn(name = "jefe")
+    @OneToOne(mappedBy = "jefe")
     @JsonBackReference
-    private Casa casa;
+    private Casa casaJefe;
 
     public Long getId_profesor() {
         return id_profesor;
@@ -66,11 +65,11 @@ public class Profesor {
         this.asignatura = asignatura;
     }
 
-    public Casa getCasa() {
-        return casa;
+    public Casa getCasaJefe() {
+        return casaJefe;
     }
 
-    public void setCasa(Casa casa) {
-        this.casa = casa;
+    public void setCasaJefe(Casa casaJefe) {
+        this.casaJefe = casaJefe;
     }
 }

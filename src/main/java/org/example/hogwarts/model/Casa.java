@@ -12,15 +12,17 @@ public class Casa {
     private Long id_casa;
     private String nombre;
     private String fantasma;
+    private String fundador;
 
 
     @OneToMany(mappedBy = "casa")
     @JsonManagedReference
     private List<Estudiante> estudiantes;
 
-    @OneToMany(mappedBy = "casa")
+    @OneToOne
+    @JoinColumn(name = "id_jefe")
     @JsonManagedReference
-    private List<Profesor> profesores;
+    private Profesor jefe;
 
     public Long getId_casa() {
         return id_casa;
@@ -30,11 +32,11 @@ public class Casa {
         this.id_casa = id_casa;
     }
 
-    public String getNombre_casa() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setNombre_casa(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
@@ -46,6 +48,14 @@ public class Casa {
         this.fantasma = fantasma;
     }
 
+    public String getFundador() {
+        return fundador;
+    }
+
+    public void setFundador(String fundador) {
+        this.fundador = fundador;
+    }
+
     public List<Estudiante> getEstudiantes() {
         return estudiantes;
     }
@@ -54,13 +64,11 @@ public class Casa {
         this.estudiantes = estudiantes;
     }
 
-    public List<Profesor> getProfesores() {
-        return profesores;
+    public Profesor getJefe() {
+        return jefe;
     }
 
-    public void setProfesores(List<Profesor> profesores) {
-        this.profesores = profesores;
+    public void setJefe(Profesor jefe) {
+        this.jefe = jefe;
     }
-
-
 }
