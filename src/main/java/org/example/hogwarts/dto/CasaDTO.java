@@ -2,6 +2,8 @@ package org.example.hogwarts.dto;
 
 import org.example.hogwarts.model.Profesor;
 
+import java.util.List;
+
 public class CasaDTO {
     Long id;
     String nombre;

@@ -1,6 +1,7 @@
 package org.example.hogwarts.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class EstudianteDTO {
     Long id;
