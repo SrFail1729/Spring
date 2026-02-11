@@ -9,10 +9,15 @@ import java.util.List;
 @Entity
 @Table(name = "Asignatura")
 public class Asignatura {
+
     @Id
     @GeneratedValue
-    private Long id_asignatura;
+    @Column(name = "id_asignatura")
+    private Long idAsignatura;
+
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String aula;
     private Boolean obligatoria;
 

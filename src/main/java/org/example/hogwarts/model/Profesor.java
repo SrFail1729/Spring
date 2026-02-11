@@ -13,10 +13,14 @@ import java.time.LocalDate;
 public class Profesor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_profesor;
+    private Long idProfesor;
+
+    @Column(nullable = false)
     private String nombre;
+    @Column(nullable = false)
     private String apellido;
-    private LocalDate fecha_inicio;
+    @Column(nullable = false)
+    private LocalDate fechaInicio;
 
     @OneToOne
     @JoinColumn(name = "id_asignatura")

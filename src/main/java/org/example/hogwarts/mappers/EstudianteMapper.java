@@ -18,29 +18,25 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class EstudianteMapper {
 
-    final private MascotaMapper mascotaMapper;
+    private final MascotaMapper mascotaMapper;
 
-    final private CasaRepositoy casaRepositoy;
+    private final CasaRepositoy casaRepositoy;
 
-    final private AsignaturaCalificacionMapper asignaturaCalificacionMapper;
+    private final AsignaturaCalificacionMapper asignaturaCalificacionMapper;
 
     public EstudianteDTO toEstudianteDTO(Estudiante estudiante) {
 
         EstudianteDTO estudianteDTO = new EstudianteDTO();
 
-        estudianteDTO.setId(estudiante.getId_estudiante());
+        estudianteDTO.setId(estudiante.getIdEstudiante());
         estudianteDTO.setNombre(estudiante.getNombre() +" "+ estudiante.getApellido());
-        estudianteDTO.setFechaNacimiento(estudiante.getFecha_nacimiento());
+        estudianteDTO.setFechaNacimiento(estudiante.getFechaNacimiento());
         if (estudiante.getCasa() != null) {
             estudianteDTO.setCasa(estudiante.getCasa().getNombre());
         }
-        if(estudiante.getMascota() != null) {
-            estudianteDTO.setMascota(mascotaMapper.mascotaDTO(estudiante.getMascota()));
-        }
-
+        estudianteDTO.setMascota(mascotaMapper.mascotaDTO(estudiante.getMascota()));
         if (estudiante.getCalificaciones() != null) {
             estudianteDTO.setAsignatura(estudiante.getCalificaciones().stream()
-                    .map(AsignaturaCalificacion::getAsignatura)
                     .map(asignaturaCalificacionMapper::asignaturaDTOToAsignatura)
                     .collect(Collectors.toList()));
         }
@@ -54,9 +50,9 @@ public class EstudianteMapper {
         Estudiante estudiante = new Estudiante();
         estudiante.setNombre(dto.getNombre());
         estudiante.setApellido(dto.getApellido());
-        estudiante.setAnyo_curso(dto.getAnyo());
+        estudiante.setAnyoCurso(dto.getAnyo());
         estudiante.setCasa(casaRepositoy.getReferenceById((long) dto.getIdCasa()));
-        estudiante.setFecha_nacimiento(dto.getFechaNacimiento());
+        estudiante.setFechaNacimiento(dto.getFechaNacimiento());
         if(dto.getMascota() != null){
             estudiante.setMascota(mascotaMapper.toEntity(dto.getMascota()));
         }
@@ -69,11 +65,11 @@ public class EstudianteMapper {
         if (dto == null || estudiante == null ) return;
 
         if (dto.getAnyo() != null) {
-            estudiante.setAnyo_curso(dto.getAnyo());
+            estudiante.setAnyoCurso(dto.getAnyo());
         }
 
         if (dto.getFechaNacimiento() != null) {
-            estudiante.setFecha_nacimiento(dto.getFechaNacimiento());
+            estudiante.setFechaNacimiento(dto.getFechaNacimiento());
         }
 
         if (dto.getIdCasa() != null) {

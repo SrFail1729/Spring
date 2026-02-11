@@ -10,7 +10,9 @@ import java.util.List;
 public class Casa {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_casa;
+    private Long idCasa;
+
+    @Column(unique = true, nullable = false)
     private String nombre;
     private String fantasma;
     private String fundador;

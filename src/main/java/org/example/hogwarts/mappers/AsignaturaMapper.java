@@ -8,14 +8,13 @@ import org.springframework.stereotype.Component;
 public class AsignaturaMapper {
 
     public AsignaturaDTO asignatura(Asignatura asignatura) {
+
         AsignaturaDTO asignaturaDTO = new AsignaturaDTO();
-        asignaturaDTO.setId(asignatura.getId_asignatura());
+        asignaturaDTO.setId(asignatura.getIdAsignatura());
         asignaturaDTO.setNombre(asignatura.getNombre());
         asignaturaDTO.setAula(asignatura.getAula());
         asignaturaDTO.setObligatoria(asignatura.getObligatoria());
-        if (asignatura.getProfesor() != null) {
-            asignaturaDTO.setProfesor(asignatura.getProfesor().getNombre());
-        }
+        asignaturaDTO.setProfesor(asignatura.getProfesor().getNombre());
 
         return asignaturaDTO;
     }

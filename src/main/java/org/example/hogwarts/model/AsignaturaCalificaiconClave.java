@@ -9,8 +9,6 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Embeddable
 public class AsignaturaCalificaiconClave implements Serializable {
     

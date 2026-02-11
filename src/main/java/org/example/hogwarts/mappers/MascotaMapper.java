@@ -8,8 +8,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class MascotaMapper {
     public MascotaDTO mascotaDTO(Mascota mascota) {
+        if(mascota == null) {
+            return null;
+        }
+
         MascotaDTO mascotaDTO = new MascotaDTO();
-        mascotaDTO.setId(mascota.getId_mascota());
+        mascotaDTO.setId(mascota.getIdMascota());
         mascotaDTO.setNombre(mascota.getNombre());
         mascotaDTO.setEspecie(mascota.getEspecie());
         mascotaDTO.setEstudiante(mascota.getEstudiante().getNombre());
@@ -17,11 +21,11 @@ public class MascotaMapper {
     }
 
     public Mascota toEntity(MascotaCreateDTO dto){
-        if (dto == null) return null;
 
         Mascota mascota = new Mascota();
         mascota.setNombre(dto.getNombre());
         mascota.setEspecie(dto.getEspecie());
+
         return mascota;
     }
 }

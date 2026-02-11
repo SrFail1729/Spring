@@ -1,13 +1,11 @@
 package org.example.hogwarts.dto.update;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.Past;
 import lombok.Data;
-import lombok.NonNull;
 import org.example.hogwarts.dto.create.MascotaCreateDTO;
 
 import java.time.LocalDate;

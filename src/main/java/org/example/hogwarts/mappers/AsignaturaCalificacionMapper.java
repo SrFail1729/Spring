@@ -1,20 +1,19 @@
 package org.example.hogwarts.mappers;
 
-import lombok.RequiredArgsConstructor;
 import org.example.hogwarts.dto.AsignaturaCalificacionDTO;
-import org.example.hogwarts.dto.EstudianteDTO;
-import org.example.hogwarts.model.Asignatura;
+import org.example.hogwarts.model.AsignaturaCalificacion;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
+
 public class AsignaturaCalificacionMapper {
 
-    public AsignaturaCalificacionDTO asignaturaDTOToAsignatura(Asignatura asignatura){
+    public AsignaturaCalificacionDTO asignaturaDTOToAsignatura(AsignaturaCalificacion calificacion){
 
-        AsignaturaCalificacionDTO asignaturaCalificacionDTO = new AsignaturaCalificacionDTO();
-        asignaturaCalificacionDTO.setCalificacion(asignaturaCalificacionDTO.getCalificacion());
+        AsignaturaCalificacionDTO dto = new AsignaturaCalificacionDTO();
+        dto.setNombre(calificacion.getAsignatura().getNombre());
+        dto.setCalificacion(calificacion.getCalificacion());
 
-        return asignaturaCalificacionDTO;
+        return dto;
     }
 }

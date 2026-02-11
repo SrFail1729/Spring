@@ -18,17 +18,12 @@ public class CasaMapper {
         casaDTO.setNombre(casa.getNombre());
         casaDTO.setFundador(casa.getFundador());
         casaDTO.setFantasma(casa.getFantasma());
-        if (casa.getJefe() != null) {
-            casaDTO.setJefe(profesorMapper.profesorDTO(casa.getJefe()));
-        }
-        if (casa.getEstudiantes() != null) {
-            casaDTO.setEstudiantes(
-                    casa.getEstudiantes().stream()
-                            .map(estudiante -> estudiante.getNombre()+" "+estudiante.getApellido())
-                            .toList()
-            );
-        }
-
+        casaDTO.setJefe(profesorMapper.profesorDTO(casa.getJefe()));
+        casaDTO.setEstudiantes(
+                casa.getEstudiantes().stream()
+                        .map(estudiante -> estudiante.getNombre()+" "+estudiante.getApellido())
+                        .toList()
+        );
         return casaDTO;
     }
 }

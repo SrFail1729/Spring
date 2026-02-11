@@ -1,7 +1,6 @@
 package org.example.hogwarts.dto;
 
 import lombok.Data;
-import org.example.hogwarts.model.Profesor;
 import java.util.List;
 
 @Data

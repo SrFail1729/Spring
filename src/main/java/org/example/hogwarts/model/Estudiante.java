@@ -7,7 +7,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
+
 
 @Data
 @Entity
@@ -15,15 +15,20 @@ import java.util.Set;
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_estudiante;
+    @Column(name = "id_estudiante")
+    private Long idEstudiante;
 
+    @Column(name = "nombre", nullable = false)
     private String nombre;
 
+    @Column(name = "apellido", nullable = false)
     private String apellido;
 
-    private Integer anyo_curso;
+    @Column(name = "anyo_curso",  nullable = false)
+    private Integer anyoCurso;
 
-    private LocalDate fecha_nacimiento;
+     @Column(name = "fecha_nacimiento", nullable = false)
+    private LocalDate fechaNacimiento;
 
     @ManyToOne
     @JoinColumn(name = "id_casa")

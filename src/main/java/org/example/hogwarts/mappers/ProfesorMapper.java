@@ -8,12 +8,10 @@ import org.springframework.stereotype.Component;
 public class ProfesorMapper {
     public ProfesorDTO profesorDTO(Profesor profesor) {
         ProfesorDTO profesorDTO = new ProfesorDTO();
-        profesorDTO.setId(profesor.getId_profesor());
+        profesorDTO.setId(profesor.getIdProfesor());
         profesorDTO.setNombre(profesor.getNombre());
-        if (profesor.getAsignatura() != null) {
-            profesorDTO.setAsignatura(profesor.getAsignatura().getNombre());
-        }
-        profesorDTO.setFechaInicio(profesor.getFecha_inicio());
+        profesorDTO.setAsignatura(profesor.getAsignatura().getNombre());
+        profesorDTO.setFechaInicio(profesor.getFechaInicio());
         return profesorDTO;
     }
 }

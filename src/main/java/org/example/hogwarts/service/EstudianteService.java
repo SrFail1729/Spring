@@ -17,9 +17,9 @@ import java.util.NoSuchElementException;
 @RequiredArgsConstructor
 public class EstudianteService {
 
-    final private EstudianteRepository repository;
+    private final EstudianteRepository repository;
 
-    final private EstudianteMapper mapper;
+    private final EstudianteMapper mapper;
 
     public List<EstudianteDTO> listarTodosEstudiantes() {
         List<Estudiante> estudiantes = repository.findAll();
