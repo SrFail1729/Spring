@@ -1,6 +1,7 @@
 package org.example.hogwarts.mappers;
 
 import org.example.hogwarts.dto.MascotaDTO;
+import org.example.hogwarts.dto.create.MascotaCreateDTO;
 import org.example.hogwarts.model.Mascota;
 import org.springframework.stereotype.Component;
 
@@ -13,5 +14,14 @@ public class MascotaMapper {
         mascotaDTO.setEspecie(mascota.getEspecie());
         mascotaDTO.setEstudiante(mascota.getEstudiante().getNombre());
         return mascotaDTO;
+    }
+
+    public Mascota toEntity(MascotaCreateDTO dto){
+        if (dto == null) return null;
+
+        Mascota mascota = new Mascota();
+        mascota.setNombre(dto.getNombre());
+        mascota.setEspecie(dto.getEspecie());
+        return mascota;
     }
 }

@@ -7,6 +7,8 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
+
 @Data
 @Entity
 @Table(name = "Estudiante")
@@ -14,7 +16,6 @@ public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_estudiante;
-
 
     private String nombre;
 
@@ -29,17 +30,11 @@ public class Estudiante {
     @JsonBackReference
     private Casa casa;
 
-    @OneToOne(mappedBy = "estudiante")
+    @OneToOne(mappedBy = "estudiante",cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private Mascota mascota;
 
-    @ManyToMany
-    @JoinTable(
-            name = "Estudiante_Asignatura",
-            joinColumns = @JoinColumn(name = "id_estudiante"),
-            inverseJoinColumns = @JoinColumn(name = "id_asignatura")
-    )
-    @JsonManagedReference
-    private List<Asignatura> asignaturas;
+    @OneToMany(mappedBy = "estudiante")
+    private List<AsignaturaCalificacion> calificaciones;
 
 }

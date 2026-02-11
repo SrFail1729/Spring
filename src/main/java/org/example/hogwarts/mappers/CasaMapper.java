@@ -1,14 +1,16 @@
 package org.example.hogwarts.mappers;
 
+import lombok.RequiredArgsConstructor;
 import org.example.hogwarts.dto.CasaDTO;
 import org.example.hogwarts.model.Casa;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class CasaMapper {
-    @Autowired
-    private ProfesorMapper profesorMapper;
+
+    final private ProfesorMapper profesorMapper;
 
     public CasaDTO casaToCasaDTO(Casa casa) {
         CasaDTO casaDTO = new CasaDTO();

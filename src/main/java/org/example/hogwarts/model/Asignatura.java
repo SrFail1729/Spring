@@ -16,9 +16,9 @@ public class Asignatura {
     private String aula;
     private Boolean obligatoria;
 
-    @ManyToMany(mappedBy = "asignaturas")
+    @OneToMany(mappedBy = "asignatura")
     @JsonBackReference
-    private List<Estudiante> estudiantes;
+    private List<AsignaturaCalificacion> calificaciones;
 
     @OneToOne(mappedBy = "asignatura")
     @JsonBackReference
