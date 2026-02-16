@@ -17,7 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class EstudianteController {
 
-    final private EstudianteService service;
+    private final EstudianteService service;
 
     @GetMapping
     public ResponseEntity<List<EstudianteDTO>> getAll(){
@@ -33,7 +33,20 @@ public class EstudianteController {
 
     @PutMapping("/{id}")
     public ResponseEntity<EstudianteDTO> actualizarEstudiante(@PathVariable Long id, @Valid @RequestBody EstudianteUpdateDTO dto){
-        EstudianteDTO estudianteAcualizado = service.actualizarUsuario(id,dto);
+        EstudianteDTO estudianteAcualizado = service.actualizarEstudiante(id,dto);
         return ResponseEntity.ok(estudianteAcualizado);
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> eliminarEstudiante(@PathVariable Long id){
+        service.eliminarEstudiante(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("/setNull/{id}")
+    public ResponseEntity<Void> eliminarEstudianteSetNullEstudiante(@PathVariable Long id){
+        service.eliminarEstudianteSetNull(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }

@@ -11,6 +11,7 @@ public class EstudianteDTO {
     String nombre;
     LocalDate fechaNacimiento;
     String casa;
+    Integer anyo;
     MascotaDTO mascota;
     List<AsignaturaCalificacionDTO> asignatura;
 }

@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.SoftDelete;
+import org.hibernate.annotations.SoftDeleteType;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "Estudiante")
+@SoftDelete(columnName = "activo", strategy = SoftDeleteType.ACTIVE)
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,7 +42,7 @@ public class Estudiante {
     @JsonManagedReference
     private Mascota mascota;
 
-    @OneToMany(mappedBy = "estudiante")
+    @OneToMany(mappedBy = "estudiante", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<AsignaturaCalificacion> calificaciones;
 
 }

@@ -22,7 +22,8 @@ public class AsignaturaCalificacion {
 
     @ManyToOne
     @MapsId("idAsignatura")
-    @JoinColumn(name = "id_asignatura")
+    @JoinColumn(name = "id_asignatura",
+            foreignKey = @ForeignKey(name = "FK_ASIGNATURA_CALIFICACION", foreignKeyDefinition = "FOREIGN KEY (id_asignatura) REFERENCES asignatura(id_asignatura) ON DELETE RESTRICT"))
     Asignatura asignatura;
 
     @Column(name = "calificacion")

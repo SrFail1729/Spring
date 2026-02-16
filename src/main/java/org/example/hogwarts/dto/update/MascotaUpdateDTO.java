@@ -1,5 +1,6 @@
 package org.example.hogwarts.dto.update;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 

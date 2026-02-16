@@ -4,12 +4,10 @@ import lombok.RequiredArgsConstructor;
 import org.example.hogwarts.dto.EstudianteDTO;
 import org.example.hogwarts.dto.create.EstudianteCreateDTO;
 import org.example.hogwarts.dto.update.EstudianteUpdateDTO;
-import org.example.hogwarts.model.AsignaturaCalificacion;
 import org.example.hogwarts.model.Casa;
 import org.example.hogwarts.model.Estudiante;
 import org.example.hogwarts.model.Mascota;
-import org.example.hogwarts.repository.CasaRepositoy;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.hogwarts.repository.CasaRepository;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Collectors;
@@ -20,7 +18,7 @@ public class EstudianteMapper {
 
     private final MascotaMapper mascotaMapper;
 
-    private final CasaRepositoy casaRepositoy;
+    private final CasaRepository casaRepository;
 
     private final AsignaturaCalificacionMapper asignaturaCalificacionMapper;
 
@@ -51,7 +49,7 @@ public class EstudianteMapper {
         estudiante.setNombre(dto.getNombre());
         estudiante.setApellido(dto.getApellido());
         estudiante.setAnyoCurso(dto.getAnyo());
-        estudiante.setCasa(casaRepositoy.getReferenceById((long) dto.getIdCasa()));
+        estudiante.setCasa(casaRepository.getReferenceById((long) dto.getIdCasa()));
         estudiante.setFechaNacimiento(dto.getFechaNacimiento());
         if(dto.getMascota() != null){
             estudiante.setMascota(mascotaMapper.toEntity(dto.getMascota()));
@@ -73,7 +71,7 @@ public class EstudianteMapper {
         }
 
         if (dto.getIdCasa() != null) {
-            Casa casa = casaRepositoy.findById(dto.getIdCasa().longValue())
+            Casa casa = casaRepository.findById(dto.getIdCasa().longValue())
                     .orElseThrow(() -> new RuntimeException("Casa no encontrada"));
             estudiante.setCasa(casa);
         }
