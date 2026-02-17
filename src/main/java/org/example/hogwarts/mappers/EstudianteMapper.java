@@ -53,6 +53,8 @@ public class EstudianteMapper {
         estudiante.setFechaNacimiento(dto.getFechaNacimiento());
         if(dto.getMascota() != null){
             estudiante.setMascota(mascotaMapper.toEntity(dto.getMascota()));
+        }else{
+            estudiante.setMascota(mascotaMapper.toEntity(null));
         }
 
         return estudiante;
@@ -75,10 +77,13 @@ public class EstudianteMapper {
                     .orElseThrow(() -> new RuntimeException("Casa no encontrada"));
             estudiante.setCasa(casa);
         }
+
         if(dto.getMascota() != null){
             Mascota mascota = mascotaMapper.toEntity(dto.getMascota());
             mascota.setEstudiante(estudiante);
             estudiante.setMascota(mascota);
+        }else {
+            Mascota mascota = mascotaMapper.toEntity(null);
         }
 
     }

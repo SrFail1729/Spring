@@ -1,6 +1,7 @@
 package org.example.hogwarts.dto.update;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import jakarta.annotation.Nullable;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
@@ -25,6 +26,7 @@ public class EstudianteUpdateDTO {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDate fechaNacimiento;
 
+    @Nullable
     @Valid
     private MascotaCreateDTO mascota;
 }

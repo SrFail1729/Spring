@@ -30,7 +30,7 @@ public class Estudiante {
     @Column(name = "anyo_curso",  nullable = false)
     private Integer anyoCurso;
 
-     @Column(name = "fecha_nacimiento", nullable = false)
+    @Column(name = "fecha_nacimiento", nullable = false)
     private LocalDate fechaNacimiento;
 
     @ManyToOne

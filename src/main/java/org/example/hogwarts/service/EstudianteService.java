@@ -60,7 +60,6 @@ public class EstudianteService {
 
         mapper.updateEntity(dto,estudianteExistente);
         Estudiante estudianteActualizado = repository.save(estudianteExistente);
-
         return mapper.toEstudianteDTO(estudianteActualizado);
     }
 

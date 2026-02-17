@@ -21,7 +21,9 @@ public class MascotaMapper {
     }
 
     public Mascota toEntity(MascotaCreateDTO dto){
-
+        if (dto == null){
+            return null;
+        }
         Mascota mascota = new Mascota();
         mascota.setNombre(dto.getNombre());
         mascota.setEspecie(dto.getEspecie());
